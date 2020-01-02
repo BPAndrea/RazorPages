@@ -20,6 +20,7 @@ namespace RazorPages
         public void OnGet()
         {
             Employees = employeeRepository.GetAllEmployees();
+
         }
     }
 }

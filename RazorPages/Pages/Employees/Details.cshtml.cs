@@ -20,10 +20,13 @@ namespace RazorPages
 
         public Employee Employee { get; private set; }
 
-        public void OnGet(int Id)
+        public IActionResult OnGet(int Id)
         {
             Employee = employeeRepository.GetEmployee(Id);
 
+            if (Employee == null)
+                return RedirectToPage("NotFound");
+            return Page();
         }
     }
 }
