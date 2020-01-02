@@ -20,7 +20,7 @@ namespace RazorPages
 
         public Employee Employee { get; private set; }
 
-        public void OnGet(int Id)
+        public void OnGet(int Id = 1)
         {
             Employee = employeeRepository.GetEmployee(Id);
 
