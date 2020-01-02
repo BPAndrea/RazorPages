@@ -9,17 +9,21 @@ using RazorPages.Services;
 
 namespace RazorPages
 {
-    public class IndexModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly IEmployeeRepository employeeRepository;
-        public IEnumerable<Employee> Employees { get; set; }
-        public IndexModel(IEmployeeRepository employeeRepository)
+
+        public DetailsModel(IEmployeeRepository employeeRepository)
         {
             this.employeeRepository = employeeRepository;
         }
-        public void OnGet()
+
+        public Employee Employee { get; private set; }
+
+        public void OnGet(int Id)
         {
-            Employees = employeeRepository.GetAllEmployees();
+            Employee = employeeRepository.GetEmployee(Id);
+
         }
     }
 }

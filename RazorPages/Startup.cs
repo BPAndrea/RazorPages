@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RazorPages.Services;
 
 namespace RazorPages
 {
@@ -24,6 +26,13 @@ namespace RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.Configure<RouteOptions>(options =>
+               {
+                   options.LowercaseUrls = true;
+                   options.LowercaseUrls = true;
+                   options.AppendTrailingSlash = true;
+               });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

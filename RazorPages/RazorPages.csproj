@@ -10,6 +10,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RazorPages.Models\RazorPages.Models.csproj" />
+    <ProjectReference Include="..\RazorPages.Services\RazorPages.Services.csproj" />
+  </ItemGroup>
+
 
 
 </Project>
